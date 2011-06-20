@@ -1,13 +1,23 @@
-gem "capybara", ">= 0.4.1.1", :group => [:cucumber, :test]
-gem "cucumber-rails", ">= 0.3.2", :group => [:cucumber, :test]
-gem "database_cleaner", ">= 0.6.5", :group => [:cucumber, :test]
-gem "factory_girl_rails", ">= 1.0.1", :group => [:cucumber, :test]
-gem "factory_girl_generator", ">= 0.0.1", :group => [:cucumber, :development, :test]
-gem "haml-rails", ">= 0.3.4"
-gem "jquery-rails", ">= 0.2.7"
-gem "launchy", ">= 0.4.0", :group => [:cucumber, :test]
-gem "rspec-rails", ">= 2.5.0", :group => [:cucumber, :development, :test]
-gem "spork", ">= 0.8.4", :group => [:cucumber, :test]
+gem "rails"
+gem "capistrano", :group => [:development]
+gem "capistrano-ext", :group => [:development]
+gem "rvm", :group => [:development]
+gem "ruby-debug", :group => [:development]
+gem "capybara", :group => [:development, :cucumber, :test]
+gem "cucumber-rails", :group => [:development, :cucumber, :test]
+gem "database_cleaner", :group => [:development, :cucumber, :test]
+gem "jasmine", :group => [:development, :cucumber, :test]
+gem "factory_girl_rails", :group => [:development, :cucumber, :test]
+gem "factory_girl_generator", :group => [:development, :cucumber, :test]
+gem "headless", :group => [:development, :cucumber, :test]
+gem "fakeweb", :group => [:development, :cucumber, :test]
+gem "pickle", :group => [:development, :cucumber, :test]
+gem "haml-rails"
+gem "sass"
+gem "jquery-rails"
+gem "launchy", :group => [:cucumber, :test]
+gem "rspec-rails", :group => [:cucumber, :development, :test]
+gem "spork", :group => [:cucumber, :test]
 
 generators = <<-GENERATORS
 
