@@ -18,6 +18,8 @@ gem "jquery-rails"
 gem "launchy", :group => [:cucumber, :test]
 gem "rspec-rails", :group => [:cucumber, :development, :test]
 gem "spork", :group => [:cucumber, :test]
+gem "hoptoad_notifier"
+gem "newrelic_rpm"
 
 generators = <<-GENERATORS
 
@@ -43,8 +45,25 @@ layout = <<-LAYOUT
     = yield
 LAYOUT
 
+settings = <<-SETTINGS
+  defaults = YAML.load(File.open(File.join(Rails.root, 'config','settings.defaults.yml')))
+  settings = File.exists?(file_name = File.join(Rails.root, 'config','settings.yml')) ? YAML.load(File.open(file_name)) : {}
+  settings = settings[Rails.env.to_sym] || {}
+  SETTINGS = defaults.merge(setting)
+SETTINGS
+
+settings_default = <<-SETTINGS_DEFAULT
+#This file has all the default settings for the app
+#to override please create a settings.yml file in the same directory
+#this has environment specific settings
+# eg:
+# :development:
+SETTINGS_DEFAULT
+
 remove_file "app/views/layouts/application.html.erb"
 create_file "app/views/layouts/application.html.haml", layout
+create_file "config/initializers/settings.rb", settings
+create_file "config/settings.defaults.yml", SETTINGS_DEFAULT
 
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
