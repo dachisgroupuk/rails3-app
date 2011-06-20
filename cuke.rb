@@ -1,4 +1,3 @@
-gem "rails"
 gem "capistrano", :group => [:development]
 gem "capistrano-ext", :group => [:development]
 gem "rvm", :group => [:development]
