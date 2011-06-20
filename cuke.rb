@@ -63,7 +63,7 @@ SETTINGS_DEFAULT
 remove_file "app/views/layouts/application.html.erb"
 create_file "app/views/layouts/application.html.haml", layout
 create_file "config/initializers/settings.rb", settings
-create_file "config/settings.defaults.yml", SETTINGS_DEFAULT
+create_file "config/settings.defaults.yml", settings_default
 
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
@@ -82,6 +82,7 @@ Run the following commands to complete the setup of #{app_name.humanize}:
 % script/rails generate jquery:install
 % script/rails generate rspec:install
 % script/rails generate cucumber:install --rspec --capybara
+% script/rails generate hoptoad --api-key your_key_here
 
 DOCS
 
