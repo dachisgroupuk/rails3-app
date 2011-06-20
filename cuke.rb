@@ -147,7 +147,7 @@ end
 namespace :bundler do
   desc "run bundle install to install required gems"
   task :install, :roles => :app, :except => { :no_release => true } do
-    run "cd #{release_path} && bundle install --without development test cucumber"
+    run "cd #{ '#{release_path}' } && bundle install --without development test cucumber"
   end
 end
 
